@@ -5,6 +5,7 @@ import { ValidationPipe } from '@nestjs/common/pipes/validation.pipe';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
+  const port = process.env.PORT || 3000
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
     .setTitle('Quixa Notify')
@@ -19,6 +20,6 @@ async function bootstrap() {
     whitelist: true,
     forbidNonWhitelisted: true,}));
   app.enableCors();
-  await app.listen(3000);
+  await app.listen(port);
 }
 bootstrap();
