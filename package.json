@@ -7,6 +7,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate deploy",
     "build:all": "npm run prisma:build && npm run build",
     "prisma:build": "npm run prisma:generate && npm run prisma:migrate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
