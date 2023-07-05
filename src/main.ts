@@ -7,14 +7,6 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const port = process.env.PORT || 3000
   const app = await NestFactory.create(AppModule);
-  const config = new DocumentBuilder()
-    .setTitle('Quixa Notify')
-    .setDescription('Api da aplicação Quixa Notify')
-    .setVersion('1.0')
-    .addTag('Problemas')
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
   app.useGlobalPipes(new ValidationPipe({ 
     transform: true,
     whitelist: true,
