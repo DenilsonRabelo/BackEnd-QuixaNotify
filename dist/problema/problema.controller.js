@@ -20,9 +20,6 @@ const get_endereco_dto_1 = require("./dto/get-endereco-dto");
 const is_public_decorator_1 = require("../auth/decorators/is-public.decorator");
 const current_user_decorator_1 = require("../auth/decorators/current-user.decorator");
 const user_entity_1 = require("../user/entities/user.entity");
-const platform_express_1 = require("@nestjs/platform-express");
-const multer_1 = require("multer");
-const path_1 = require("path");
 let ProblemaController = class ProblemaController {
     constructor(problemaService) {
         this.problemaService = problemaService;
@@ -60,17 +57,7 @@ let ProblemaController = class ProblemaController {
 };
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagem', {
-        storage: (0, multer_1.diskStorage)({
-            destination: './files',
-            filename(req, file, callback) {
-                const UniqueSufix = Date.now() + -+Math.round(Math.random() * 1e9);
-                const ext = (0, path_1.extname)(file.originalname);
-                const filename = `${UniqueSufix}${ext}`;
-                callback(null, filename);
-            },
-        }),
-    })),
+    (0, common_1.UseInterceptors)(),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, current_user_decorator_1.CurrentUser)()),
     __param(2, (0, common_1.UploadedFile)()),

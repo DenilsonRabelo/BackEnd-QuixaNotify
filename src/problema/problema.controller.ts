@@ -16,9 +16,7 @@ import { GetEnderecoDto } from './dto/get-endereco-dto';
 import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
 import { User } from 'src/user/entities/user.entity';
-import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-import { extname } from 'path';
+
 
 @Controller('problemas')
 export class ProblemaController {
@@ -26,17 +24,6 @@ export class ProblemaController {
 
   @Post()
   @UseInterceptors(
-    FileInterceptor('imagem', {
-      storage: diskStorage({
-        destination: './files',
-        filename(req, file, callback) {
-          const UniqueSufix = Date.now() + -+Math.round(Math.random() * 1e9);
-          const ext = extname(file.originalname);
-          const filename = `${UniqueSufix}${ext}`;
-          callback(null, filename);
-        },
-      }),
-    }),
   )
   async posProblema(
     @Body() data: ProblemaDto,
