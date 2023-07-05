@@ -12,7 +12,7 @@
     "build:all": "npm run prisma:build && npm run build",
     "prisma:build": "npm run prisma:generate && npm run prisma:migrate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "npm run build && nest start",
+    "start": "node dist/main",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -40,7 +40,8 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "vercel": "^31.0.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
