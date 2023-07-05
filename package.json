@@ -12,7 +12,7 @@
     "build:all": "npm run prisma:build && npm run build",
     "prisma:build": "npm run prisma:generate && npm run prisma:migrate",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "node dist/main",
+    "start": "npm run start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
